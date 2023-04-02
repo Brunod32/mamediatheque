@@ -28,4 +28,11 @@ public class WriterServiceImpl implements WriterService {
     public Writer getWriter(int id) {
         return writerRepository.findById(id).orElse(null); //Retourn null si pas trouvé
     }
+
+    @Override
+    public void deleteWriter(int id) {
+        writerRepository.deleteById(id);
+    }
+
+
 }

@@ -15,4 +15,6 @@ public interface WriterService {
     //Récupérer un écrivain en fonction de son id
     public Writer getWriter(int id);
 
+    public void deleteWriter(int id);
+
 }

@@ -26,4 +26,11 @@ public class WriterRestController {
         return writer;
     }
 
+    @DeleteMapping("/{idWriterToDelete}")
+    public void deleteWriter(@PathVariable Integer idWriterToDelete) {
+        if (idWriterToDelete != null) {
+            writerService.deleteWriter(idWriterToDelete);
+        }
+    }
+
 }
