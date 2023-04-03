@@ -1,15 +1,16 @@
 <template>
     <main>
-        <h1>Bienvenue dans mon gestionnaire de médias</h1>
+        <h1>Les auteurs</h1>
+
+        
     </main>
 </template>
-
-
+  
+  
 <style scoped>
 h1 {
     text-align: center;
-    margin-top: 3rem;
 }
-
 </style>
-
+  
+  
