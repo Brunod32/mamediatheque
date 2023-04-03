@@ -17,4 +17,6 @@ public interface WriterService {
 
     public void deleteWriter(int id);
 
+    public Writer getSingleWriter(int idWriter);
+
 }

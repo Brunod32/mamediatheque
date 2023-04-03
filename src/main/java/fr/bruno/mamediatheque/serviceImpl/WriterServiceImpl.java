@@ -34,5 +34,10 @@ public class WriterServiceImpl implements WriterService {
         writerRepository.deleteById(id);
     }
 
+    @Override
+    public Writer getSingleWriter(int idWriter) {
+        return writerRepository.findById(idWriter).get();
+    }
+
 
 }

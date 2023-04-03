@@ -7,6 +7,7 @@ const firstname = ref('');
 const lastname = ref('');
 const biography = ref('');
 const listAuthors = ref([]);
+const idAuthorToUpdate = ref(0);
 
 async function init() {
     // Permet de récupérer la liste des auteurs en BDD
@@ -22,8 +23,14 @@ async function createAuthor(){
         biography: biography.value,
     }
 
+    // si l'id est différent de 0, on l'ajoute
+    if (idAuthorToUpdate.value > 0){
+        body.id = idAuthorToUpdate.value;
+    }
+
     await axios.post(URL_AUTEUR, body);
 
+    // Reinitialisation des champs de saisie
     firstname.value = '';
     lastname.value = '';
     biography.value = '';
@@ -32,11 +39,24 @@ async function createAuthor(){
 
 async function deleteAuthor(idAuthorToDelete) {
     await axios.delete(URL_AUTEUR + '/' + idAuthorToDelete);
+    idAuthorToUpdate.value = 0;
     init();
 }
 
+function updateAuthor(authorToUpdate){
+  firstname.value = authorToUpdate.firstname
+  lastname.value = authorToUpdate.lastname
+  biography.value = authorToUpdate.biography
+  idAuthorToUpdate.value = authorToUpdate.id
+}
+
+function stopUpdate() {
+    firstname.value = lastname.value = biography.value = '';
+    idAuthorToUpdate.value = 0;
+}
 
 onMounted(() => {
+    console.log('onMounted : je vais appeler la méthode init()')
     init();
 })
 
@@ -67,7 +87,8 @@ onMounted(() => {
             
             <div>
                 <div class="mt-3">
-                    <button @click="createAuthor()" class="btn btn-primary">Valider</button>
+                    <button @click="createAuthor()" class="btn btn-primary">{{ idAuthorToUpdate == 0 ? 'Ajouter' : 'Modifier' }}</button>&nbsp;
+                    <button v-if="idAuthorToUpdate > 0" class="btn btn-danger" @click="stopUpdate()">Annuler la modification</button>
                 </div>
             </div>
 
@@ -79,7 +100,8 @@ onMounted(() => {
             <div class="mb-3" v-for="author in listAuthors">
                 <h3>{{ author.firstname }} {{ author.lastname }}</h3>
                 <p>{{ author.biography }}</p>
-                <button @click='deleteAuthor(author.id)' class="btn btn-danger badge">X</button>
+                <button @click='deleteAuthor(author.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp;
+                <button @click='updateAuthor(author)' class="btn btn-info badge"><i class="bi bi-pen"></i></button>
             </div>
 
         </section>
@@ -91,6 +113,15 @@ onMounted(() => {
 <style scoped>
 h1 {
     text-align: center;
+}
+
+i {
+    font-size: 1rem;
+}
+
+input , textarea{
+    border-radius: 10px;
+    padding: 5px;
 }
 </style>
   

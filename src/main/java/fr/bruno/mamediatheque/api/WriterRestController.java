@@ -20,6 +20,11 @@ public class WriterRestController {
         return writerService.listWriter();
     }
 
+    @GetMapping("/{idWriter}")
+    public Writer getSingleWriter(@PathVariable Integer idWriter) {
+        return writerService.getSingleWriter(idWriter);
+    }
+
     @PostMapping
     public Writer writer(@RequestBody Writer writer) {
         writerService.addWriter(writer);

@@ -34,6 +34,7 @@ onMounted(() => {
         <ul v-for="author in listAuthors">
             <li>
                 {{ author.firstname }} {{ author.lastname }}
+                <a :href="'/detailsAuteur/' + author.id">Détails</a>
             </li>
         </ul>
 

@@ -9,6 +9,7 @@ import { RouterLink, RouterView } from 'vue-router'
             <RouterLink to="/bibliotheque"><i class="bi bi-book-half"></i></RouterLink>
             <RouterLink to="/musique"><i class="bi bi-music-note-list"></i></RouterLink>
         </nav>
+        <hr>
     </header>
 
     <RouterView />
