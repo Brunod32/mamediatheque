@@ -1,9 +1,14 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
 <template>
   <main>
-    <TheWelcome />
+    <h1>Bienvenue dans mon gestionnaire de médias</h1>
   </main>
 </template>
+
+
+<style scoped>
+h1 {
+  text-align: center;
+  margin-top: 3rem;
+}
+</style>
+
