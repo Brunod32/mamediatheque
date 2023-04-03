@@ -14,7 +14,6 @@ async function init() {
     const listAuthorsFormatJson = response.data;
     listAuthors.value = listAuthorsFormatJson;
 }
-
 onMounted(() => {
     console.log('onMounted : je vais appeler la méthode init()')
     init();
