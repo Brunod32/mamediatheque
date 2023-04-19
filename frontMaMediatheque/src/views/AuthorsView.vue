@@ -81,7 +81,7 @@ onMounted(() => {
                 </div>
                 <div class="d-flex flex-column">
                     <label for="biography">Biographie</label>
-                    <textarea name="biography" id="biography" cols="30" rows="3"  v-model="biography"></textarea>
+                    <textarea name="biography" id="biography" cols="30" rows="3" v-model="biography"></textarea>
                 </div>
             </div>
             
