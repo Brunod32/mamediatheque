@@ -19,6 +19,11 @@ const router = createRouter({
             component: () => import('../views/AuthorsView.vue')
         },
         {
+            path: '/bibliotheque/ajouterAuteur',
+            name: 'addAuthor',
+            component: ()=> import('../views/AddAuthorView.vue')
+        },
+        {
             path: '/detailsAuteur/:id',
             component: () => import('../views/DetailsAuthorView.vue')
         },
@@ -26,6 +31,11 @@ const router = createRouter({
             path: '/bibliotheque/livres',
             name: 'books',
             component: () => import('../views/BooksView.vue')
+        },
+        {
+            path: '/bibliotheque/ajouterLivre',
+            name: 'addBook',
+            component: () => import('../views/addBookView.vue')
         },
         {
             path: '/detailsLivre/:id',

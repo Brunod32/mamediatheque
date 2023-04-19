@@ -26,7 +26,7 @@ onMounted(() => {
         <h1>Détails de {{ author.firstname }} {{ author.lastname }}</h1>
 
         <div class="btnBack">
-            <a href="/bibliotheque" class="btnBack"><i class="bi bi-chevron-left"></i></a>
+            <a href="/bibliotheque/auteurs" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
 
         <div>

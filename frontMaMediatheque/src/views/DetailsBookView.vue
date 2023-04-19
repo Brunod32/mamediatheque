@@ -27,7 +27,7 @@ onMounted(() => {
             
 
         <div class="btnBack">
-            <a href="/bibliotheque" class="btnBack"><i class="bi bi-chevron-left"></i></a>
+            <a href="/bibliotheque/livres" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
 
         <div>

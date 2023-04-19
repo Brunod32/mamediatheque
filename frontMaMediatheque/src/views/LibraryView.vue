@@ -38,23 +38,32 @@ onMounted(() => {
             <RouterLink to="/bibliotheque/livres" class="navItem">Les livres</RouterLink>
         </nav>
 
-        <h2>Liste des auteurs</h2>
+        <hr>
 
-        <ul v-for="author in listAuthors">
-            <li>
-                {{ author.firstname }} {{ author.lastname }}
-                <a :href="'/detailsAuteur/' + author.id">Détails</a>
-            </li>
-        </ul>
+        <div class="d-flex justify-content-around mt-5">
+            <div>
+                <h2>Liste des auteurs</h2>
 
-        <h2>Liste des Livres</h2>
+                <ul v-for="author in listAuthors">
+                    <li>
+                        {{ author.firstname }} {{ author.lastname }}
+                        <a :href="'/detailsAuteur/' + author.id">Détails</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2>Liste des Livres</h2>
 
-        <ul v-for="book in listBooks">
-            <li>
-                {{ book.title }}
-                <a :href="'/detailsLivre/' + book.id">Détails</a>
-            </li>
-        </ul>
+                <ul v-for="book in listBooks">
+                    <li>
+                        {{ book.title }}
+                        <a :href="'/detailsLivre/' + book.id">Détails</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        
 
     </main>
 </template>
@@ -70,7 +79,6 @@ nav{
     padding-bottom: 30px;
     display: flex;
     justify-content: space-around;
-
 }
 
 .navItem:hover {
