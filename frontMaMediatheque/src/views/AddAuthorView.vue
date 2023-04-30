@@ -44,10 +44,10 @@ async function deleteAuthor(idAuthorToDelete) {
 }
 
 function updateAuthor(authorToUpdate){
-  firstname.value = authorToUpdate.firstname
-  lastname.value = authorToUpdate.lastname
-  biography.value = authorToUpdate.biography
-  idAuthorToUpdate.value = authorToUpdate.id
+    firstname.value = authorToUpdate.firstname
+    lastname.value = authorToUpdate.lastname
+    biography.value = authorToUpdate.biography
+    idAuthorToUpdate.value = authorToUpdate.id
 }
 
 function stopUpdate() {
@@ -56,7 +56,6 @@ function stopUpdate() {
 }
 
 onMounted(() => {
-    console.log('onMounted : je vais appeler la méthode init()')
     init();
 })
 

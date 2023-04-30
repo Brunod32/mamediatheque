@@ -4,14 +4,20 @@ import axios from 'axios';
 // ligne 5 et 6 permettent de générer la page de détails de l'auteur
 import { useRoute } from 'vue-router';
 const route = useRoute();
-const URL_BOOK = 'http://localhost:8080/api/livre/';
+const URL_BOOK = 'http://localhost:8080/api/livre';
 
 const book = ref({});
 
 async function init() {
-    const response = await axios.get(URL_BOOK + route.params.id);
+    const response = await axios.get(URL_BOOK + '/' + route.params.id);
     const bookFormatJson = response.data;
     book.value = bookFormatJson;
+}
+
+async function deleteBook(idBookToDelete) {
+    await axios.delete(URL_BOOK + '/' + idBookToDelete);
+    idBookToDelete.value = 0;
+    init();
 }
 
 onMounted(() => {
@@ -25,6 +31,11 @@ onMounted(() => {
 
         <h1>Détails du livre "{{ book.title }}"</h1>
             
+        <div class="btnsDiv">
+            <button @click='deleteBook(book.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp;
+            <!-- <button @click='updateBook(book)' class="btn btn-info badge"><i class="bi bi-pen"></i></button> -->
+            <!-- <a :href="'/bibliotheque/ajouterLivre/'">Modifier</a> -->
+        </div>
 
         <div class="btnBack">
             <a href="/bibliotheque/livres" class="btnBack"><i class="bi bi-chevron-left"></i></a>
@@ -59,6 +70,11 @@ h1 {
     text-align: center;
 }
 
+.btnsDiv {
+    display: flex;
+    justify-content: center;
+}
+
 .btnBack{
     margin: 20px 0;
 }
@@ -73,7 +89,7 @@ i {
 }
 
 .imgBook {
-    width: 300px;
+    width: 200px;
     height: auto;
 }
 </style>

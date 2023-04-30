@@ -4,6 +4,10 @@ import axios from 'axios';
 const URL_LIVRE = 'http://localhost:8080/api/livre';
 const URL_AUTEUR = 'http://localhost:8080/api/auteur';
 
+// Pour redirection
+import { useRoute } from 'vue-router';
+const router = useRoute();
+
 const title = ref('');
 const nbPages = ref('');
 const releaseYear = ref('');
@@ -41,9 +45,9 @@ async function createBook() {
     if (idBookToUpdate.value > 0){
         body.id = idBookToUpdate.value;
     }
-
+    
     await axios.post(URL_LIVRE, body);
-
+    
     // Réinitialisation des champs de saisie
     title.value = nbPages.value = releaseYear.value = synopsis.value = writer.value = bookCover = '';
     init();
@@ -66,7 +70,7 @@ function updateBook(bookToUpdate) {
 }
 
 function stopUpdate() {
-    title.value = nbPages.value = releaseYear.value = synopsis.value = bookCover = '';
+    title.value = nbPages.value = releaseYear.value = synopsis.value = bookCover.value = '';
     idBookToUpdate.value = 0;
 }
 
@@ -103,7 +107,7 @@ onMounted(() => {
                     <div class="d-flex flex-column">
                         <label for="writer">Auteur</label>
                         <!-- Ajouter mulitple dans select si plusieurs auteurs pour un livre -->
-                        <select multiple name="writer" id="writer" v-model="writer">
+                        <select name="writer" id="writer" v-model="writer">
                             <option v-for="writer in writersList" v-bind:value="writer">
                                 {{ writer.firstname }} {{ writer.lastname }}
                             </option>
