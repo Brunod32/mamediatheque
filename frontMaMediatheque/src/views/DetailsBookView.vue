@@ -30,19 +30,24 @@ onMounted(() => {
             <a href="/bibliotheque/livres" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
 
-        <div>
-            <h5>Titre du livre:</h5>
-            <p>{{ book.title }}</p>
-            <h5>Auteur:</h5>
-            <template v-for="writer in book.writer">
-                <p>{{ writer.firstname }} {{ writer.lastname }}</p>            
-            </template>
-            <h5>Année de sortie:</h5>
-            <p> {{ book.releaseYear }}</p>
-            <h5>Nombre de pages:</h5>
-            <p> {{ book.nbPages }}</p>
-            <h5>Synopsis:</h5>
-            <p>{{ book.synopsis }}</p>
+        <div class="bookDescription">
+            <div>
+                <h5>Titre du livre:</h5>
+                <p>{{ book.title }}</p>
+                <h5>Auteur:</h5>
+                <template v-for="writer in book.writer">
+                    <p>{{ writer.firstname }} {{ writer.lastname }}</p>            
+                </template>
+                <h5>Année de sortie:</h5>
+                <p> {{ book.releaseYear }}</p>
+                <h5>Nombre de pages:</h5>
+                <p> {{ book.nbPages }}</p>
+                <h5>Synopsis:</h5>
+                <p>{{ book.synopsis }}</p>
+            </div>
+            <div>
+                <img class="imgBook" :src="book.bookCover" :title="book.title"  alt="Couverture de livre" />
+            </div>
         </div>
 
     </main>
@@ -60,6 +65,16 @@ h1 {
 
 i {
     font-size: 2rem;
+}
+
+.bookDescription {
+    display: flex;
+    justify-content:space-around
+}
+
+.imgBook {
+    width: 300px;
+    height: auto;
 }
 </style>
   

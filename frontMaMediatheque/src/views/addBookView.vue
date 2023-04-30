@@ -8,6 +8,7 @@ const title = ref('');
 const nbPages = ref('');
 const releaseYear = ref('');
 const synopsis = ref('');
+const bookCover = ref('');
 const listBooks = ref([]);
 const idBookToUpdate = ref(0);
 
@@ -32,7 +33,8 @@ async function createBook() {
         nbPages: nbPages.value,
         releaseYear: releaseYear.value,
         synopsis: synopsis.value,
-        writer: writer.value
+        writer: writer.value,
+        bookCover: bookCover.value
     }
 
     //Si id livre est différent de 1, on l'ajoute
@@ -43,7 +45,7 @@ async function createBook() {
     await axios.post(URL_LIVRE, body);
 
     // Réinitialisation des champs de saisie
-    title.value = nbPages.value = releaseYear.value = synopsis.value = writer.value = '';
+    title.value = nbPages.value = releaseYear.value = synopsis.value = writer.value = bookCover = '';
     init();
 }
 
@@ -60,10 +62,11 @@ function updateBook(bookToUpdate) {
     synopsis.value = bookToUpdate.synopsis
     idBookToUpdate.value = bookToUpdate.id
     writer.value = bookToUpdate.writer
+    bookCover.value = bookToUpdate.bookCover
 }
 
 function stopUpdate() {
-    title.value = nbPages.value = releaseYear.value = synopsis.value = '';
+    title.value = nbPages.value = releaseYear.value = synopsis.value = bookCover = '';
     idBookToUpdate.value = 0;
 }
 
@@ -97,6 +100,21 @@ onMounted(() => {
                         <label for="releaseYear">Année de sortie</label>
                         <input type="text" name="releaseYear" v-model="releaseYear">
                     </div>
+                    <div class="d-flex flex-column">
+                        <label for="writer">Auteur</label>
+                        <!-- Ajouter mulitple dans select si plusieurs auteurs pour un livre -->
+                        <select multiple name="writer" id="writer" v-model="writer">
+                            <option v-for="writer in writersList" v-bind:value="writer">
+                                {{ writer.firstname }} {{ writer.lastname }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex flex-column">
+                        <label for="bookCover">Couverture</label>
+                        <input type="text" name="bookCover" v-model="bookCover">
+                    </div>
+
                 </div>
                 <div>
                     <div class="d-flex flex-column">
@@ -104,16 +122,7 @@ onMounted(() => {
                         <textarea name="synopsis" id="synopsis" cols="30" rows="3" v-model="synopsis"></textarea>
                     </div>
                 </div>
-                <div>
-                    <div class="d-flex flex-column">
-                        <label class="mt-2" for="writer">Auteur</label>
-                        <select multiple name="writer" id="writer" v-model="writer">
-                            <option v-for="writer in writersList" v-bind:value="writer">
-                                {{ writer.firstname }} {{ writer.lastname }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
+            
             </div>
         </div>
         
@@ -160,7 +169,7 @@ i {
     font-size: 2rem;
 }
 
-input , textarea{
+input , textarea, select{
     border-radius: 10px;
     padding: 5px;
 }
