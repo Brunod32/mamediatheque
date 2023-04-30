@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 const URL_LIVRE = 'http://localhost:8080/api/livre';
+const URL_AUTEUR = 'http://localhost:8080/api/auteur';
 
 const title = ref('');
 const nbPages = ref('');
@@ -10,10 +11,19 @@ const synopsis = ref('');
 const listBooks = ref([]);
 const idBookToUpdate = ref(0);
 
+const writersList = ref([]);
+const writer = ref('');
+
 async function init() {
     const response = await axios.get(URL_LIVRE);
     const listBooksFormatJson = response.data;
     listBooks.value = listBooksFormatJson;
+}
+
+async function initWritersList() {
+    const response = await axios.get(URL_AUTEUR);
+    const writersListFormatJson = response.data;
+    writersList.value = writersListFormatJson;
 }
 
 async function createBook() {
@@ -22,6 +32,7 @@ async function createBook() {
         nbPages: nbPages.value,
         releaseYear: releaseYear.value,
         synopsis: synopsis.value,
+        writer: writer.value
     }
 
     //Si id livre est différent de 1, on l'ajoute
@@ -32,7 +43,7 @@ async function createBook() {
     await axios.post(URL_LIVRE, body);
 
     // Réinitialisation des champs de saisie
-    title.value = nbPages.value = releaseYear.value = synopsis.value = '';
+    title.value = nbPages.value = releaseYear.value = synopsis.value = writer.value = '';
     init();
 }
 
@@ -48,6 +59,7 @@ function updateBook(bookToUpdate) {
     releaseYear.value = bookToUpdate.releaseYear
     synopsis.value = bookToUpdate.synopsis
     idBookToUpdate.value = bookToUpdate.id
+    writer.value = bookToUpdate.writer
 }
 
 function stopUpdate() {
@@ -57,6 +69,7 @@ function stopUpdate() {
 
 onMounted(() => {
     init();
+    initWritersList();
 })
 
 
@@ -89,6 +102,16 @@ onMounted(() => {
                     <div class="d-flex flex-column">
                         <label class="mt-2" for="synopsis">Synopsis</label>
                         <textarea name="synopsis" id="synopsis" cols="30" rows="3" v-model="synopsis"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex flex-column">
+                        <label class="mt-2" for="writer">Auteur</label>
+                        <select multiple name="writer" id="writer" v-model="writer">
+                            <option v-for="writer in writersList" v-bind:value="writer">
+                                {{ writer.firstname }} {{ writer.lastname }}
+                            </option>
+                        </select>
                     </div>
                 </div>
             </div>

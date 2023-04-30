@@ -5,8 +5,10 @@ import axios from 'axios';
 import { useRoute } from 'vue-router';
 const route = useRoute();
 const URL_AUTEUR = 'http://localhost:8080/api/auteur/';
+const URL_LIVRE = 'http://localhost:8080/api/livre';
 
 const author = ref({});
+const booksList = ref({});
 
 async function init() {
     const response = await axios.get(URL_AUTEUR + route.params.id);
@@ -14,8 +16,15 @@ async function init() {
     author.value = authorFormatJson;
 }
 
+async function initBooksList() {
+    const response = await axios.get(URL_LIVRE);
+    const booksListFormatJson = response.data;
+    booksList.value = booksListFormatJson;
+}
+
 onMounted(() => {
     init();
+    initBooksList();
 })
 
 </script>
@@ -30,12 +39,23 @@ onMounted(() => {
         </div>
 
         <div>
+            <h5>id:</h5>
+            <p>{{ author.id }}</p>
             <h5>Nom:</h5>
             <p>{{ author.lastname }}</p>
             <h5>Prénom:</h5>
             <p> {{ author.firstname }}</p>
             <h5>Biographie:</h5>
             <p>{{ author.biography }}</p>
+            <div>
+                <h5>Bibliographie</h5>
+                <ul v-for="books in booksList">
+                    <template v-for="writer in books.writer">
+                        <li v-if="author.lastname == writer.lastname">{{ books.title }}</li>
+                    </template>
+                </ul> 
+            </div>
+            
 
         </div>
 

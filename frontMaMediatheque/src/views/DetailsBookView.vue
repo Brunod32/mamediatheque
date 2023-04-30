@@ -33,11 +33,16 @@ onMounted(() => {
         <div>
             <h5>Titre du livre:</h5>
             <p>{{ book.title }}</p>
+            <h5>Auteur:</h5>
+            <template v-for="writer in book.writer">
+                <p>{{ writer.firstname }} {{ writer.lastname }}</p>            
+            </template>
             <h5>Année de sortie:</h5>
             <p> {{ book.releaseYear }}</p>
+            <h5>Nombre de pages:</h5>
+            <p> {{ book.nbPages }}</p>
             <h5>Synopsis:</h5>
             <p>{{ book.synopsis }}</p>
-
         </div>
 
     </main>
