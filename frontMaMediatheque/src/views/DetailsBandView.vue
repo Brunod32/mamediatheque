@@ -21,6 +21,10 @@ async function initAlbumsList() {
     albumsList.value = albumsListFormatJson;
 }
 
+async function deleteBand(idBandToDelete) {
+    await axios.delete(URL_BAND +  idBandToDelete);
+    init();
+}
 
 onMounted(() => {
     init();
@@ -33,6 +37,10 @@ onMounted(() => {
     <main>
 
         <h1>Détails de {{ band.name }}</h1>
+        <div class="btnDiv">
+            <button @click='deleteBand(band.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp;
+        </div>
+        <hr>
 
         <div class="btnBack">
             <a href="/musique/groupes" class="btnBack"><i class="bi bi-chevron-left"></i></a>
@@ -61,6 +69,11 @@ onMounted(() => {
 <style scoped>
 h1 {
     text-align: center;
+}
+
+.btnDiv {
+    display: flex;
+    justify-content: center;
 }
 
 .btnBack{
