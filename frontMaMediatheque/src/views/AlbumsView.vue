@@ -29,7 +29,7 @@ onMounted(() => {
         <div>
             <div class="d-flex mb-5">
                 <h2 class="mt-2">Liste des albums</h2>
-                <!-- <a :href="'/musique/ajouterAlbum'" title="Ajouter un album" class="mx-5"><i class="bi bi-plus-circle addAlbum"></i></a> -->
+                <a :href="'/musique/ajouterAlbum'" title="Ajouter un album" class="mx-5"><i class="bi bi-plus-circle addAlbum"></i></a>
             </div>
             <ul v-for="album in listAlbums">
                 <li>
