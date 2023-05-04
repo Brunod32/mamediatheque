@@ -52,9 +52,27 @@ const router = createRouter({
             component: () => import('../views/BandsView.vue')
         },
         {
+            path: '/detailsBand/:id',
+            component: () => import('../views/DetailsBandView.vue')
+        },
+        {
+            path: '/musique/ajouterGroupe',
+            name: 'addBand',
+            component: () => import('../views/addBandView.vue')
+        },
+        {
             path: '/musique/albums',
             name: 'albums',
             component: () => import('../views/AlbumsView.vue')
+        },
+        {
+            path: '/musique/ajouterAlbum',
+            name: 'addAlbum',
+            component: () => import('../views/addAlbumView.vue')
+        },
+        {
+            path: '/detailsAlbum/:id',
+            component: () => import('../views/DetailsAlbumView.vue')
         }
     ]
 })

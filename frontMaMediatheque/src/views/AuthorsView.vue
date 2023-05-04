@@ -66,10 +66,6 @@ i {
     font-size: 2rem;
 }
 
-input , textarea{
-    border-radius: 10px;
-    padding: 5px;
-}
 </style>
   
   
