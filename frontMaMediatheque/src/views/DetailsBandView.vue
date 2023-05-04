@@ -23,6 +23,7 @@ async function initAlbumsList() {
 
 async function deleteBand(idBandToDelete) {
     await axios.delete(URL_BAND + idBandToDelete);
+    window.location.href = '/musique/groupes';
     init();
 }
 

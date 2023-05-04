@@ -28,9 +28,8 @@ async function createAlbum() {
         releasedYears: releasedYears.value,
         band: band.value,
     }
-
-    await axios.post(URL_ALBUM, body);
     
+    await axios.post(URL_ALBUM, body);
     // Réinitialisation des champs de saisie
     name.value = releasedYears.value = band.value = '';
     init();
@@ -38,7 +37,7 @@ async function createAlbum() {
 
 onMounted(() => {
     init();
-    iniBandsList()
+    iniBandsList();
 })
 
 </script>

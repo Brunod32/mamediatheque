@@ -6,7 +6,6 @@ const route = useRoute();
 const URL_ALBUM = 'http://localhost:8080/api/album';
 
 const album = ref({});
-
 async function init() {
     const response = await axios.get(URL_ALBUM + '/' + route.params.id);
     const albumFormatJson = response.data;
@@ -15,6 +14,7 @@ async function init() {
 
 async function deleteAlbum(idAlbumToDelete) {
     await axios.delete(URL_ALBUM + '/' + idAlbumToDelete);
+    window.location.href = '/musique/albums';
     init();
 }
 
@@ -47,7 +47,8 @@ onMounted(() => {
             <div>
                 <h5>Titre de l'album:</h5>
                 <p>{{ album.name }}</p>
-                
+                <h5>Groupe:</h5>
+                <p>{{ album.band?.name }}</p>
                 <h5>Année de sortie:</h5>
                 <p> {{ album.releasedYears }}</p>
                 
