@@ -20,6 +20,7 @@ public class Book {
     private int nbPages;
     private int releaseYear;
     private String synopsis;
+    private String bookCover;
 
     //    Pour récupérer la liste des auteurs
     @ManyToMany
