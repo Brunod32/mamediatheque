@@ -16,7 +16,7 @@ async function init() {
 }
 
 async function initAlbumsList() {
-    const response = await axios.get(URL_ALBUM + '/' + route.params.id);
+    const response = await axios.get(URL_ALBUM);
     const albumsListFormatJson = response.data;
     albumsList.value = albumsListFormatJson;
 }
@@ -30,6 +30,7 @@ async function deleteBand(idBandToDelete) {
 onMounted(() => {
     init();
     initAlbumsList();
+    console.log(albumsList.id)
 })
 
 </script>
@@ -55,9 +56,12 @@ onMounted(() => {
             
             <div>
                 <h5>Discographie</h5>
-                <ul>
-                    <li>{{ albumsList.name }}</li>
+                <ul v-for="albums in albumsList">
+                    <li v-if="band.id == albums.band.id">
+                        {{ albums.name }}
+                    </li>
                 </ul>
+                
             </div>
             
 
