@@ -16,6 +16,7 @@ async function init() {
 
 async function deleteBook(idBookToDelete) {
     await axios.delete(URL_BOOK + '/' + idBookToDelete);
+    window.location.href = '/bibliotheque/livres';
     idBookToDelete.value = 0;
     init();
 }

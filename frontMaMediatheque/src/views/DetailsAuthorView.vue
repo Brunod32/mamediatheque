@@ -22,6 +22,12 @@ async function initBooksList() {
     booksList.value = booksListFormatJson;
 }
 
+async function deleteAuthor(idAuthorToDelete) {
+    await axios.delete(URL_AUTEUR  + idAuthorToDelete);
+    window.location.href = '/bibliotheque/auteurs';
+    init();
+}
+
 onMounted(() => {
     init();
     initBooksList();
@@ -33,6 +39,10 @@ onMounted(() => {
     <main>
 
         <h1>Détails de {{ author.firstname }} {{ author.lastname }}</h1>
+        <div class="btnDiv">
+            <button @click='deleteAuthor(author.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp;
+        </div>
+        <hr>
 
         <div class="btnBack">
             <a href="/bibliotheque/auteurs" class="btnBack"><i class="bi bi-chevron-left"></i></a>
@@ -66,6 +76,11 @@ onMounted(() => {
 <style scoped>
 h1 {
     text-align: center;
+}
+
+.btnDiv {
+    display: flex;
+    justify-content: center;
 }
 
 .btnBack{
