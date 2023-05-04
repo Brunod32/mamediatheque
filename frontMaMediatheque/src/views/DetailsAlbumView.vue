@@ -13,6 +13,10 @@ async function init() {
     album.value = albumFormatJson;
 }
 
+async function deleteAlbum(idAlbumToDelete) {
+    await axios.delete(URL_ALBUM + '/' + idAlbumToDelete);
+    init();
+}
 
 onMounted(() => {
     init();
@@ -24,7 +28,11 @@ onMounted(() => {
     <main>
 
         <h1>Détails de "{{ album.name }}"</h1>
-            
+        <div class="btnDiv">
+            <button @click='deleteAlbum(album.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp;
+        </div>
+        <hr>
+
         <div class="btnsDiv">
             <!-- <button @click='deleteBook(book.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp; -->
             <!-- <button @click='updateBook(book)' class="btn btn-info badge"><i class="bi bi-pen"></i></button> -->
@@ -56,6 +64,11 @@ onMounted(() => {
 <style scoped>
 h1 {
     text-align: center;
+}
+
+.btnDiv {
+    display: flex;
+    justify-content: center;
 }
 
 .btnsDiv {

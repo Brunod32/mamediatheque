@@ -22,7 +22,7 @@ async function initAlbumsList() {
 }
 
 async function deleteBand(idBandToDelete) {
-    await axios.delete(URL_BAND +  idBandToDelete);
+    await axios.delete(URL_BAND + idBandToDelete);
     init();
 }
 

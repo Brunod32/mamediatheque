@@ -48,7 +48,7 @@ onMounted(() => {
         <h1>Ajout Album</h1>
         <hr>
         <div class="btnBack">
-            <a href="/musique/groupes" class="btnBack"><i class="bi bi-chevron-left"></i></a>
+            <a href="/musique/albums" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
 
 
@@ -87,5 +87,18 @@ onMounted(() => {
 <style scoped>
 h1 {
     text-align: center;
+}
+
+.btnBack {
+    margin: 20px 0;
+}
+
+.btnBack i {
+    font-size: 2rem;
+}
+
+input {
+    border-radius: 10px;
+    padding: 5px;
 }
 </style>
