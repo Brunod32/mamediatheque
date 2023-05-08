@@ -30,7 +30,6 @@ async function deleteBand(idBandToDelete) {
 onMounted(() => {
     init();
     initAlbumsList();
-    console.log(albumsList.id)
 })
 
 </script>
@@ -41,6 +40,7 @@ onMounted(() => {
         <h1>Détails de {{ band.name }}</h1>
         <div class="btnDiv">
             <button @click='deleteBand(band.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp;
+            <a :href='"/bibliotheque/modifierGroupe" + "/" + band.id' class="btn btn-info badge"><i class="bi bi-pen"></i></a>
         </div>
         <hr>
 
@@ -50,10 +50,12 @@ onMounted(() => {
 
         <div class="bandDescription">
             <div>
-                <!-- <h5>id:</h5>
-                <p>{{ band.id }}</p> -->
+                <h5>id:</h5>
+                <p>{{ band.id }}</p>
                 <h5>Pays:</h5>
                 <p>{{ band.country }}</p>
+                <h5>Année de formation:</h5>
+                <p>{{ band.creationYear }}</p>
                 
                 <div>
                     <h5>Discographie</h5>

@@ -36,8 +36,9 @@ onMounted(() => {
             <button @click='deleteBook(book.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp;
             <!-- <button @click='updateBook(book)' class="btn btn-info badge"><i class="bi bi-pen"></i></button> -->
             <!-- <a :href="'/bibliotheque/ajouterLivre/'">Modifier</a> -->
+            <a :href='"/bibliotheque/modifierLivre" + "/" + book.id' class="btn btn-info badge"><i class="bi bi-pen"></i></a>
         </div>
-
+        <hr>
         <div class="btnBack">
             <a href="/bibliotheque/livres" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>

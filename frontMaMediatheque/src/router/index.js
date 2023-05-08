@@ -43,6 +43,11 @@ const router = createRouter({
             component: () => import('../views/addBookView.vue')
         },
         {
+            path: '/bibliotheque/modifierLivre/:id',
+            name: 'updateBook',
+            component: ()=> import('../views/UpdateBookView.vue')
+        },
+        {
             path: '/detailsLivre/:id',
             component: () => import('../views/DetailsBookView.vue')
         },
@@ -55,6 +60,11 @@ const router = createRouter({
             path: '/musique/groupes',
             name: 'bands',
             component: () => import('../views/BandsView.vue')
+        },
+        {
+            path: '/bibliotheque/modifierGroupe/:id',
+            name: 'updateBand',
+            component: ()=> import('../views/UpdateBandView.vue')
         },
         {
             path: '/detailsBand/:id',
