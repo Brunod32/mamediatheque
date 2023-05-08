@@ -48,23 +48,30 @@ onMounted(() => {
             <a href="/musique/groupes" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
 
-        <div>
-            <h5>id:</h5>
-            <p>{{ band.id }}</p>
-            <h5>Pays:</h5>
-            <p>{{ band.country }}</p>
-            
+        <div class="bandDescription">
             <div>
-                <h5>Discographie</h5>
-                <ul v-for="albums in albumsList">
-                    <li v-if="band.id == albums.band.id">
-                        {{ albums.name }}
-                    </li>
-                </ul>
+                <!-- <h5>id:</h5>
+                <p>{{ band.id }}</p> -->
+                <h5>Pays:</h5>
+                <p>{{ band.country }}</p>
                 
+                <div>
+                    <h5>Discographie</h5>
+                    <ul v-for="albums in albumsList">
+                        <li v-if="band.id == albums.band.id">
+                            {{ albums.name }}
+                        </li>
+                    </ul>
+                </div>
             </div>
-            
-
+            <div>
+                <template v-if="band.bandPicture != null">
+                    <img class="imgBand" :src="band.bandPicture" :title="band.name"  alt="Photo du groupe" />
+                </template>
+                <template v-else>
+                    <p>Image non disponible</p>
+                </template>
+            </div>    
         </div>
 
     </main>
@@ -87,6 +94,16 @@ h1 {
 
 i {
     font-size: 2rem;
+}
+
+.bandDescription {
+    display: flex;
+    justify-content:space-around
+}
+
+.imgBand {
+    width: 200px;
+    height: auto;
 }
 </style>
   

@@ -7,6 +7,7 @@ const listBands = ref([]);
 const name = ref('');
 const country = ref('');
 const creationYear = ref('');
+const bandPicture = ref('');
 
 async function init() {
     const response = await axios.get(URL_BAND);
@@ -19,12 +20,13 @@ async function createBand() {
         name: name.value,
         country: country.value,
         creationYear: creationYear.value,
+        bandPicture: bandPicture.value,
     }
 
     await axios.post(URL_BAND, body);
 
     // Reinitialisation des champs de saisie
-    name.value = country.value = creationYear.value = '';
+    name.value = country.value = creationYear.value = bandPicture.value = '';
     init();
 }
 
@@ -57,8 +59,11 @@ onMounted(() => {
                         <label for="firstname">Année de formation</label>
                         <input type="text" name="creationYear" v-model="creationYear">
                     </div>
-                </div>
-                
+                    <div class="d-flex flex-column">
+                        <label for="bandPicture">Image</label>
+                        <input type="text" name="bandPicture" v-model="bandPicture">
+                    </div>
+                </div>                
             </div>
             
             <div>

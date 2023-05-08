@@ -28,12 +28,12 @@ async function createAlbum() {
         name: name.value,
         releasedYears: releasedYears.value,
         band: band.value,
-        albumCover: albumCover.value
+        albumCover: albumCover.value,
     }
     
     await axios.post(URL_ALBUM, body);
     // Réinitialisation des champs de saisie
-    name.value = releasedYears.value = band.value = '';
+    name.value = releasedYears.value = band.value = albumCover.value = '';
     init();
 }
 
