@@ -6,6 +6,7 @@ const URL_BAND = 'http://localhost:8080/api/groupe';
 
 const name = ref('');
 const releasedYears = ref('');
+const albumCover = ref('');
 const listAlbums = ref([]);
 const band = ref('');
 const bandsList = ref([]);
@@ -27,6 +28,7 @@ async function createAlbum() {
         name: name.value,
         releasedYears: releasedYears.value,
         band: band.value,
+        albumCover: albumCover.value
     }
     
     await axios.post(URL_ALBUM, body);
@@ -70,6 +72,11 @@ onMounted(() => {
                                 {{ band.name }}
                             </option>
                         </select>
+                    </div>
+
+                    <div class="d-flex flex-column">
+                        <label for="albumCover">Couverture</label>
+                        <input type="text" name="albumCover" v-model="albumCover">
                     </div>
                 </div>            
             </div>

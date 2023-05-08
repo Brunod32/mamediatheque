@@ -42,7 +42,6 @@ onMounted(() => {
         <div class="btnBack">
             <a href="/musique/albums" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
-
         <div class="albumDescription">
             <div>
                 <h5>Titre de l'album:</h5>
@@ -51,11 +50,10 @@ onMounted(() => {
                 <p>{{ album.band?.name }}</p>
                 <h5>Année de sortie:</h5>
                 <p> {{ album.releasedYears }}</p>
-                
             </div>
-            <!-- <div>
-                <img class="imgBook" :src="book.bookCover" :title="book.title"  alt="Couverture de livre" />
-            </div> -->
+            <div>
+                <img class="imgAlbum" :src="album.albumCover" :title="album.name"  alt="Couverture de l'album" />
+            </div>
         </div>
 
     </main>
@@ -90,7 +88,7 @@ i {
     justify-content:space-around
 }
 
-.imgBook {
+.imgAlbum {
     width: 200px;
     height: auto;
 }
