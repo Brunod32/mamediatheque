@@ -41,6 +41,7 @@ onMounted(() => {
         <h1>Détails de {{ author.firstname }} {{ author.lastname }}</h1>
         <div class="btnDiv">
             <button @click='deleteAuthor(author.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp;
+            <a :href='"/bibliotheque/modifierAuteur" + "/" + author.id' class="btn btn-info badge"><i class="bi bi-pen"></i></a>
         </div>
         <hr>
 

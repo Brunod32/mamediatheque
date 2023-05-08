@@ -1,19 +1,21 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import { useRoute } from 'vue-router';
+const route = useRoute();
 const URL_AUTEUR = 'http://localhost:8080/api/auteur';
 
 const firstname = ref('');
 const lastname = ref('');
 const biography = ref('');
-const listAuthors = ref([]);
+const author = ref({});
 const idAuthorToUpdate = ref(0);
 
 async function init() {
     // Permet de récupérer la liste des auteurs en BDD
-    const response = await axios.get(URL_AUTEUR);
-    const listAuthorsFormatJson = response.data;
-    listAuthors.value = listAuthorsFormatJson;
+    const response = await axios.get(URL_AUTEUR + '/' +route.params.id);
+    const authorFormatJson = response.data;
+    author.value = authorFormatJson;
 }
 
 async function createAuthor(){
@@ -48,24 +50,27 @@ function updateAuthor(authorToUpdate){
     lastname.value = authorToUpdate.lastname
     biography.value = authorToUpdate.biography
     idAuthorToUpdate.value = authorToUpdate.id
+
+    createAuthor();
+    stopUpdate();
 }
 
 function stopUpdate() {
     firstname.value = lastname.value = biography.value = '';
     idAuthorToUpdate.value = 0;
-}
+} 
 
 onMounted(() => {
     init();
 })
-
 </script>
 
 <template>
     <main>
-        <h1 class="my-3">Les auteurs</h1>
-        <hr>
-        <div class="btnBack">
+        <h1>Modifier l'auteur {{ author.firstname }} {{ author.lastname }}</h1>
+    <hr>
+
+    <div class="btnBack">
             <a href="/bibliotheque/auteurs" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
         <div class="d-flex flex-column mt-5">
@@ -73,46 +78,36 @@ onMounted(() => {
                 <div class="d-flex gap-5">
                     <div class="d-flex flex-column">
                         <label for="lastname">Nom</label>
-                        <input type="text" name="lastname" v-model="lastname">
+                        <input type="text" name="lastname" v-model="author.lastname">
                     </div>
                     <div class="d-flex flex-column">
                         <label for="firstname">Prénom</label>
-                        <input type="text" name="firstname" v-model="firstname">
+                        <input type="text" name="firstname" v-model="author.firstname">
                     </div>
                 </div>
                 <div class="d-flex flex-column mt-3">
                     <label for="biography">Biographie</label>
-                    <textarea name="biography" id="biography" cols="30" rows="3" v-model="biography"></textarea>
+                    <textarea name="biography" id="biography" cols="30" rows="3" v-model="author.biography"></textarea>
                 </div>
             </div>
             
             <div>
                 <div class="mt-3">
-                    <button @click="createAuthor()" class="btn btn-primary">{{ idAuthorToUpdate == 0 ? 'Ajouter' : 'Modifier' }}</button>&nbsp;
-                    <button v-if="idAuthorToUpdate > 0" class="btn btn-danger" @click="stopUpdate()">Annuler la modification</button>
+                    <div class="mt-3">
+                    <!-- <button @click="createAuthor()" class="btn btn-primary">{{ idAuthorToUpdate == 0 ? 'Ajouter' : 'Modifier' }}</button>&nbsp; -->
+                    <button @click='updateAuthor(author)' class="btn btn-primary">Modifier</button>&nbsp;
+                    <!-- <button v-if="idAuthorToUpdate > 0" class="btn btn-danger" @click="stopUpdate()">Annuler la modification</button> -->
+                </div>
                 </div>
             </div>           
         </div>
-        <hr class="my-4">
-        <section>
-            <div class="mb-3" v-for="author in listAuthors">
-                <h3>{{ author.firstname }} {{ author.lastname }}</h3>
-                <p>{{ author.biography }}</p>
-                <!-- <button @click='deleteAuthor(author.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp; -->
-                <button @click='updateAuthor(author)' class="btn btn-info badge"><i class="bi bi-pen"></i></button>
-            </div>
-        </section>
     </main>
+    
 </template>
-  
-  
-<style scoped>
+
+<style>
 h1 {
     text-align: center;
-}
-
-i {
-    font-size: 1rem;
 }
 
 .btnBack {
@@ -128,5 +123,3 @@ input , textarea{
     padding: 5px;
 }
 </style>
-  
-  

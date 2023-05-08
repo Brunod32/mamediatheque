@@ -24,6 +24,11 @@ const router = createRouter({
             component: ()=> import('../views/AddAuthorView.vue')
         },
         {
+            path: '/bibliotheque/modifierAuteur/:id',
+            name: 'updateAuthor',
+            component: ()=> import('../views/UpdateAuthorView.vue')
+        },
+        {
             path: '/detailsAuteur/:id',
             component: () => import('../views/DetailsAuthorView.vue')
         },
