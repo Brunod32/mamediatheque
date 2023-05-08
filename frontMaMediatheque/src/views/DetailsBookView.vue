@@ -48,7 +48,8 @@ onMounted(() => {
                 <p>{{ book.title }}</p>
                 <h5>Auteur:</h5>
                 <template v-for="writer in book.writer">
-                    <p>{{ writer.firstname }} {{ writer.lastname }}</p>            
+                    <!-- <p>{{ writer.firstname }} {{ writer.lastname }}</p> -->
+                    <p><a :href="'/detailsAuteur/' + writer.id">{{ writer.firstname }} {{ writer.lastname }}</a></p>        
                 </template>
                 <h5>Année de sortie:</h5>
                 <p> {{ book.releaseYear }}</p>

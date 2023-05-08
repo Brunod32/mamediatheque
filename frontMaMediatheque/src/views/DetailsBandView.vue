@@ -59,7 +59,8 @@ onMounted(() => {
                     <h5>Discographie</h5>
                     <ul v-for="albums in albumsList">
                         <li v-if="band.id == albums.band.id">
-                            {{ albums.name }}
+                            <img class="imgAlbum" :src="albums.albumCover" :title="albums.name"  alt="Couverture de l'album" />
+                            <a :href="'/detailsAlbum/' + albums.id">{{ albums.name }}</a>
                         </li>
                     </ul>
                 </div>
@@ -104,6 +105,15 @@ i {
 .imgBand {
     width: 200px;
     height: auto;
+}
+
+.imgAlbum {
+    width: 50px;
+    height:auto;
+}
+
+li {
+    list-style: none;
 }
 </style>
   

@@ -33,6 +33,7 @@ onMounted(() => {
             </div>
             <ul v-for="book in listBooks">
                 <li>
+                    <img class="imgBook" :src="book.bookCover" :title="book.title"  alt="Couverture de livre" />
                     {{ book.title }}
                     <a :href="'/detailsLivre/' + book.id">Détails</a>
                 </li>
@@ -68,6 +69,15 @@ i {
 input , textarea{
     border-radius: 10px;
     padding: 5px;
+}
+
+.imgBook {
+    width: 50px;
+    height: auto;
+}
+
+li {
+    list-style: none;
 }
 </style>
   

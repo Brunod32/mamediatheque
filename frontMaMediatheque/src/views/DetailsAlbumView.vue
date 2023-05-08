@@ -47,7 +47,8 @@ onMounted(() => {
                 <h5>Titre de l'album:</h5>
                 <p>{{ album.name }}</p>
                 <h5>Groupe:</h5>
-                <p>{{ album.band?.name }}</p>
+                <!-- <p>{{ album.band?.name }}</p> -->
+                <p><a :href="'/detailsBand/' + album.band?.id">{{ album.band?.name }}</a></p>
                 <h5>Année de sortie:</h5>
                 <p> {{ album.releasedYears }}</p>
             </div>

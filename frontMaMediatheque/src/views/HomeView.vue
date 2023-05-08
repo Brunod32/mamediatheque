@@ -1,6 +1,6 @@
 <template>
     <main>
-        <h1>Bienvenue dans mon gestionnaire de médias</h1>
+        <h1>Gestionnaire de médias</h1>
     </main>
 </template>
 

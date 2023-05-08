@@ -32,13 +32,26 @@ onMounted(() => {
                 <h2 class="mt-2">Liste des groupes</h2>
                 <a :href="'/musique/ajouterGroupe'" title="Ajouter un groupe" class="mx-5"><i class="bi bi-plus-circle addBand"></i></a>
             </div>
-            <ul v-for="band in listBands">
+            <!-- <ul v-for="band in listBands">
                 <li>
                     {{ band.name }}
                     <a :href="'/detailsBand/' + band.id">Détails</a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
+
+        <div class="row">
+            <div class="col-md-3" v-for="band in listBands">
+                <div class="mb-3" style="width: 18rem;">
+                    <img class="imgBand" :src="band.bandPicture" :title="band.name"  alt="Photo du groupe" />
+                    <div class="card-body">
+                        <a :href="'/detailsBand/' + band.id"><h5 class="card-title">{{ band.name }} - {{ band.country }}</h5></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
         
     </main>
 </template>

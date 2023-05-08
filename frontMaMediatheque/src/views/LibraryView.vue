@@ -24,7 +24,6 @@ async function init() {
 
 
 onMounted(() => {
-    console.log('onMounted : je vais appeler la méthode init()')
     init();
 })
 
@@ -40,7 +39,7 @@ onMounted(() => {
 
         <hr>
 
-        <div class="d-flex justify-content-around mt-5">
+        <!-- <div class="d-flex justify-content-around mt-5">
             <div>
                 <h2>Liste des auteurs</h2>
 
@@ -61,10 +60,7 @@ onMounted(() => {
                     </li>
                 </ul>
             </div>
-        </div>
-        
-        
-
+        </div> -->
     </main>
 </template>
   

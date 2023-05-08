@@ -33,6 +33,7 @@ onMounted(() => {
             </div>
             <ul v-for="album in listAlbums">
                 <li>
+                    <img class="imgAlbum" :src="album.albumCover" :title="album.name"  alt="Couverture de l'album" />
                     {{ album.name }}
                     <a :href="'/detailsAlbum/' + album.id">Détails</a>
                 </li>
@@ -57,6 +58,15 @@ h1 {
 
 .addAlbum {
     font-size: 2rem;
+}
+
+.imgAlbum {
+    width: 50px;
+    height: auto;
+}
+
+li {
+    list-style: none;
 }
 </style>
   
