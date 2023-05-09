@@ -42,7 +42,7 @@ onMounted(() => {
 
         <div class="row">
             <div class="col-md-3" v-for="band in listBands">
-                <div class="mb-3" style="width: 18rem;">
+                <div class="mb-3">
                     <img class="imgBand" :src="band.bandPicture" :title="band.name"  alt="Photo du groupe" />
                     <div class="card-body">
                         <a :href="'/detailsBand/' + band.id"><h5 class="card-title">{{ band.name }} - {{ band.country }}</h5></a>
@@ -72,6 +72,10 @@ h1 {
 
 .addBand {
     font-size: 2rem;
+}
+
+.imgBand {
+    height: 100;
 }
 </style>
   
