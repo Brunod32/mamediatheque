@@ -134,7 +134,7 @@ onMounted(() => {
                 <button v-if="idBookToUpdate > 0" class="btn btn-danger" @click="stopUpdate()">Annuler la modification</button>
             </div>
         </div>
-
+<!-- 
         <hr class="my-4">
 
         <section>
@@ -148,7 +148,7 @@ onMounted(() => {
                 <button @click='updateBook(book)' class="btn btn-info badge"><i class="bi bi-pen"></i></button>
             </div>
         </section>
-        
+         -->
     </main>
 </template>
   

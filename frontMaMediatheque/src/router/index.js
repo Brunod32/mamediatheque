@@ -86,6 +86,11 @@ const router = createRouter({
             component: () => import('../views/addAlbumView.vue')
         },
         {
+            path: '/musique/modifierAlbum/:id',
+            name: 'updateAlbum',
+            component: () => import('../views/UpdateAlbumView.vue')
+        },
+        {
             path: '/detailsAlbum/:id',
             component: () => import('../views/DetailsAlbumView.vue')
         }

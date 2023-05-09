@@ -30,6 +30,7 @@ onMounted(() => {
         <h1>Détails de "{{ album.name }}"</h1>
         <div class="btnDiv">
             <button @click='deleteAlbum(album.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp;
+            <a :href='"/musique/modifierAlbum" + "/" + album.id' class="btn btn-info badge"><i class="bi bi-pen"></i></a>
         </div>
         <hr>
 
