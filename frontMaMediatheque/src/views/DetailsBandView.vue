@@ -50,8 +50,10 @@ onMounted(() => {
 
         <div class="bandDescription">
             <div>
-                <h5>id:</h5>
-                <p>{{ band.id }}</p>
+                <!-- <h5>id:</h5>
+                <p>{{ band.id }}</p> -->
+                <h5>Style:</h5>
+                <p>{{ band.kindOfMetal }}</p>
                 <h5>Pays:</h5>
                 <p>{{ band.country }}</p>
                 <h5>Année de formation:</h5>

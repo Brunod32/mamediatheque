@@ -51,7 +51,6 @@ onMounted(() => {
 
         <div class="authorDescription">
             <div>
-                {{ author }}
                 <!-- <h5>id:</h5>
                 <p>{{ author.id }}</p> -->
                 <h5>Nom:</h5>

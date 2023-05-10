@@ -8,6 +8,7 @@ const name = ref('');
 const country = ref('');
 const creationYear = ref('');
 const bandPicture = ref('');
+const kindOfMetal = ref('');
 
 async function init() {
     const response = await axios.get(URL_BAND);
@@ -21,12 +22,13 @@ async function createBand() {
         country: country.value,
         creationYear: creationYear.value,
         bandPicture: bandPicture.value,
+        kindOfMetal: kindOfMetal.value,
     }
 
     await axios.post(URL_BAND, body);
 
     // Reinitialisation des champs de saisie
-    name.value = country.value = creationYear.value = bandPicture.value = '';
+    name.value = country.value = creationYear.value = bandPicture.value = kindOfMetal.value ='';
     init();
 }
 
@@ -50,6 +52,10 @@ onMounted(() => {
                     <div class="d-flex flex-column">
                         <label for="lastname">Nom</label>
                         <input type="text" name="name" v-model="name">
+                    </div>
+                    <div class="d-flex flex-column">
+                        <label for="kindOfMetal">Style</label>
+                        <input type="text" name="kindOfMetal" v-model="kindOfMetal">
                     </div>
                     <div class="d-flex flex-column">
                         <label for="firstname">Pays</label>

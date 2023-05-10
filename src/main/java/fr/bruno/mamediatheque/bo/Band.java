@@ -19,6 +19,7 @@ public class Band {
     private String name;
     private String country;
     private int creationYear;
+    private String kindOfMetal;
 
     @Column(columnDefinition="text")
     private String bandPicture;
