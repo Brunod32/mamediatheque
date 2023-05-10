@@ -20,6 +20,8 @@ public class Book {
     private int nbPages;
     private int releaseYear;
     private String synopsis;
+
+    @Column(columnDefinition="text")
     private String bookCover;
 
     //    Pour récupérer la liste des auteurs

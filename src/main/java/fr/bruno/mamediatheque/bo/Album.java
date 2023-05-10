@@ -17,6 +17,9 @@ public class Album {
     private String name;
     private int releasedYears;
 
+    @Column(columnDefinition="text")
+    private String albumCover;
+
     @OneToOne
     private Band band;
 }
