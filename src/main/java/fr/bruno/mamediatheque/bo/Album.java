@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Getter @Setter
@@ -21,5 +23,6 @@ public class Album {
     private String albumCover;
 
     @OneToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Band band;
 }
