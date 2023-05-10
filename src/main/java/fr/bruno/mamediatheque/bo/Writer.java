@@ -20,4 +20,7 @@ public class Writer {
     private String lastname;
     private String biography;
 
+    @Column(columnDefinition="text")
+    private String writerPicture;
+
 }

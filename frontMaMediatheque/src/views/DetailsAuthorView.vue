@@ -49,27 +49,38 @@ onMounted(() => {
             <a href="/bibliotheque/auteurs" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
 
-        <div>
-            <!-- <h5>id:</h5>
-            <p>{{ author.id }}</p> -->
-            <h5>Nom:</h5>
-            <p>{{ author.lastname }}</p>
-            <h5>Prénom:</h5>
-            <p> {{ author.firstname }}</p>
-            <h5>Biographie:</h5>
-            <p>{{ author.biography }}</p>
+        <div class="authorDescription">
             <div>
-                <h5>Bibliographie</h5>
-                <ul v-for="books in booksList">
-                    <template v-for="writer in books.writer">
-                        <!-- <li v-if="author.lastname == writer.lastname">{{ books.title }}</li> -->
-                        <li v-if="author.lastname == writer.lastname">
-                            <img class="imgBook" :src="books.bookCover" :title="books.title"  alt="Couverture de livre" />
-                            <a :href="'/detailsLivre/' + books.id">{{ books.title }}</a>
-                        </li>
-                    </template>
-                </ul>
+                <!-- <h5>id:</h5>
+                <p>{{ author.id }}</p> -->
+                <h5>Nom:</h5>
+                <p>{{ author.lastname }}</p>
+                <h5>Prénom:</h5>
+                <p> {{ author.firstname }}</p>
+                <h5>Biographie:</h5>
+                <p>{{ author.biography }}</p>
+                <div>
+                    <h5>Bibliographie</h5>
+                    <ul v-for="books in booksList">
+                        <template v-for="writer in books.writer">
+                            <!-- <li v-if="author.lastname == writer.lastname">{{ books.title }}</li> -->
+                            <li v-if="author.lastname == writer.lastname">
+                                <img class="imgBook" :src="books.bookCover" :title="books.title"  alt="Couverture de livre" />
+                                <a :href="'/detailsLivre/' + books.id">{{ books.title }}</a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
             </div>
+            
+            <div>
+                <template v-if="author.writerPicture != null">
+                    <img class="imgAuthor" :src="author.writerPicture" :title="author.lastname"  alt="Photo de l'auteur" />
+                </template>
+                <template v-else>
+                    <p>Image non disponible</p>
+                </template>
+            </div>    
         </div>
     </main>
 </template>
@@ -100,6 +111,16 @@ i {
 
 li {
     list-style: none;
+}
+
+.authorDescription {
+    display: flex;
+    justify-content:space-around;
+}
+
+.imgAuthor {
+    width: 200px;
+    height: auto;
 }
 </style>
   

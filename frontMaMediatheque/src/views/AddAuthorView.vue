@@ -7,6 +7,7 @@ const firstname = ref('');
 const lastname = ref('');
 const biography = ref('');
 const listAuthors = ref([]);
+const writerPicture = ref('');
 const idAuthorToUpdate = ref(0);
 
 async function init() {
@@ -21,19 +22,18 @@ async function createAuthor(){
         firstname: firstname.value,
         lastname: lastname.value,
         biography: biography.value,
+        writerPicture: writerPicture.value
     }
 
     // si l'id est différent de 0, on l'ajoute
-    if (idAuthorToUpdate.value > 0){
-        body.id = idAuthorToUpdate.value;
-    }
+    // if (idAuthorToUpdate.value > 0){
+    //     body.id = idAuthorToUpdate.value;
+    // }
 
     await axios.post(URL_AUTEUR, body);
 
     // Reinitialisation des champs de saisie
-    firstname.value = '';
-    lastname.value = '';
-    biography.value = '';
+    firstname.value = lastname.value = biography.value = writerPicture.value = '';
     init();
 }
 
@@ -43,17 +43,17 @@ async function createAuthor(){
 //     init();
 // }
 
-function updateAuthor(authorToUpdate){
-    firstname.value = authorToUpdate.firstname
-    lastname.value = authorToUpdate.lastname
-    biography.value = authorToUpdate.biography
-    idAuthorToUpdate.value = authorToUpdate.id
-}
+// function updateAuthor(authorToUpdate){
+//     firstname.value = authorToUpdate.firstname
+//     lastname.value = authorToUpdate.lastname
+//     biography.value = authorToUpdate.biography
+//     idAuthorToUpdate.value = authorToUpdate.id
+// }
 
-function stopUpdate() {
-    firstname.value = lastname.value = biography.value = '';
-    idAuthorToUpdate.value = 0;
-}
+// function stopUpdate() {
+//     firstname.value = lastname.value = biography.value = '';
+//     idAuthorToUpdate.value = 0;
+// }
 
 onMounted(() => {
     init();
@@ -78,6 +78,10 @@ onMounted(() => {
                     <div class="d-flex flex-column">
                         <label for="firstname">Prénom</label>
                         <input type="text" name="firstname" v-model="firstname">
+                    </div>
+                    <div class="d-flex flex-column">
+                        <label for="writerPicture">Photo de l'auteur</label>
+                        <input type="text" name="writerPicture" v-model="writerPicture">
                     </div>
                 </div>
                 <div class="d-flex flex-column mt-3">
