@@ -48,10 +48,10 @@ onMounted(() => {
                 <h5>Titre du livre:</h5>
                 <p>{{ book.title }}</p>
                 <h5>Auteur:</h5>
-                <template v-for="writer in book.writer">
-                    <!-- <p>{{ writer.firstname }} {{ writer.lastname }}</p> -->
-                    <p><a :href="'/detailsAuteur/' + writer.id">{{ writer.firstname }} {{ writer.lastname }}</a></p>        
-                </template>
+                <!-- <template v-for="writer in book.writer">
+                    <p>{{ writer.firstname }} {{ writer.lastname }}</p>
+                </template> -->
+                <p><a :href="'/detailsAuteur/' + book.writer?.id">{{ book.writer?.firstname }} {{ book.writer?.lastname }}</a></p>        
                 <h5>Année de sortie:</h5>
                 <p> {{ book.releaseYear }}</p>
                 <h5>Nombre de pages:</h5>

@@ -49,7 +49,7 @@ async function createBook() {
     await axios.post(URL_LIVRE, body);
     
     // Réinitialisation des champs de saisie
-    title.value = nbPages.value = releaseYear.value = synopsis.value = writer.value = bookCover = '';
+    title.value = nbPages.value = releaseYear.value = synopsis.value = writer.value = bookCover.value = '';
     init();
 }
 

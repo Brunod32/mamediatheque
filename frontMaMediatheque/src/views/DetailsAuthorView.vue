@@ -51,6 +51,7 @@ onMounted(() => {
 
         <div class="authorDescription">
             <div>
+                {{ author }}
                 <!-- <h5>id:</h5>
                 <p>{{ author.id }}</p> -->
                 <h5>Nom:</h5>
@@ -62,13 +63,13 @@ onMounted(() => {
                 <div>
                     <h5>Bibliographie</h5>
                     <ul v-for="books in booksList">
-                        <template v-for="writer in books.writer">
+                        <!-- <template v-for="writer in books.writer"> -->
                             <!-- <li v-if="author.lastname == writer.lastname">{{ books.title }}</li> -->
-                            <li v-if="author.lastname == writer.lastname">
+                            <li v-if="author.id == books.writer.id">
                                 <img class="imgBook" :src="books.bookCover" :title="books.title"  alt="Couverture de livre" />
                                 <a :href="'/detailsLivre/' + books.id">{{ books.title }}</a>
                             </li>
-                        </template>
+                        <!-- </template> -->
                     </ul>
                 </div>
             </div>

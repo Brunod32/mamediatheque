@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.List;
 
@@ -25,7 +27,14 @@ public class Book {
     private String bookCover;
 
     //    Pour récupérer la liste des auteurs
-    @ManyToMany
-    private List<Writer> writer;
+//    @ManyToMany
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private List<Writer> writer;
+
+    //    Pour récupérer l'auteur
+    @OneToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Writer writer;
+
 
 }
