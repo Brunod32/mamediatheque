@@ -34,12 +34,6 @@ onMounted(() => {
         </div>
         <hr>
 
-        <div class="btnsDiv">
-            <!-- <button @click='deleteBook(book.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp; -->
-            <!-- <button @click='updateBook(book)' class="btn btn-info badge"><i class="bi bi-pen"></i></button> -->
-            <!-- <a :href="'/bibliotheque/ajouterLivre/'">Modifier</a> -->
-        </div>
-
         <div class="btnBack">
             <a href="/musique/albums" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
@@ -48,7 +42,6 @@ onMounted(() => {
                 <h5>Titre de l'album:</h5>
                 <p>{{ album.name }}</p>
                 <h5>Groupe:</h5>
-                <!-- <p>{{ album.band?.name }}</p> -->
                 <p><a :href="'/detailsBand/' + album.band?.id">{{ album.band?.name }}</a></p>
                 <h5>Année de sortie:</h5>
                 <p> {{ album.releasedYears }}</p>
@@ -68,11 +61,6 @@ h1 {
 }
 
 .btnDiv {
-    display: flex;
-    justify-content: center;
-}
-
-.btnsDiv {
     display: flex;
     justify-content: center;
 }

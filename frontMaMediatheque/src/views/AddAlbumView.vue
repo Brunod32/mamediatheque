@@ -17,7 +17,7 @@ async function init() {
     listAlbums.value = listAlbumsFormatJson;
 }
 
-async function iniBandsList() {
+async function initBandsList() {
     const response = await axios.get(URL_BAND);
     const bandsListFormatJson = response.data;
     bandsList.value = bandsListFormatJson;
@@ -39,7 +39,7 @@ async function createAlbum() {
 
 onMounted(() => {
     init();
-    iniBandsList();
+    initBandsList();
 })
 
 </script>

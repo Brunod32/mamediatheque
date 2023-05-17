@@ -129,8 +129,6 @@ onMounted(() => {
         <div>
             <div class="mt-3">
                 <button @click='updateBook(book)' class="btn btn-primary">Modifier</button>&nbsp;
-                <!-- <button @click="createBook()" class="btn btn-primary">{{ idBookToUpdate == 0 ? 'Ajouter' : 'Modifier' }}</button>&nbsp;
-                <button v-if="idBookToUpdate > 0" class="btn btn-danger" @click="stopUpdate()">Annuler la modification</button> -->
             </div>
         </div>
 

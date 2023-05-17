@@ -82,11 +82,11 @@ onMounted(() => {
                         <input type="text" name="name" v-model="album.name">
                     </div>
                     <div class="d-flex flex-column">
-                        <label for="nbPages">Année de sortie</label>
+                        <label for="releasedYears">Année de sortie</label>
                         <input type="text" name="releasedYears" v-model="album.releasedYears">
                     </div>
                     <div class="d-flex flex-column">
-                        <label for="writer">Groupe</label>
+                        <label for="band">Groupe</label>
                         <!-- Ajouter mulitple dans select si plusieurs auteurs pour un livre -->
                         <select name="band" id="band" v-model="band">
                             <option v-for="band in bandsList" v-bind:value="album.band">

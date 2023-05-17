@@ -34,8 +34,6 @@ onMounted(() => {
             
         <div class="btnsDiv">
             <button @click='deleteBook(book.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp;
-            <!-- <button @click='updateBook(book)' class="btn btn-info badge"><i class="bi bi-pen"></i></button> -->
-            <!-- <a :href="'/bibliotheque/ajouterLivre/'">Modifier</a> -->
             <a :href='"/bibliotheque/modifierLivre" + "/" + book.id' class="btn btn-info badge"><i class="bi bi-pen"></i></a>
         </div>
         <hr>
@@ -48,9 +46,6 @@ onMounted(() => {
                 <h5>Titre du livre:</h5>
                 <p>{{ book.title }}</p>
                 <h5>Auteur:</h5>
-                <!-- <template v-for="writer in book.writer">
-                    <p>{{ writer.firstname }} {{ writer.lastname }}</p>
-                </template> -->
                 <p><a :href="'/detailsAuteur/' + book.writer?.id">{{ book.writer?.firstname }} {{ book.writer?.lastname }}</a></p>        
                 <h5>Année de sortie:</h5>
                 <p> {{ book.releaseYear }}</p>

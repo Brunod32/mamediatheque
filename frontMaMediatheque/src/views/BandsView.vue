@@ -32,12 +32,6 @@ onMounted(() => {
                 <h2 class="mt-2">Liste des groupes</h2>
                 <a :href="'/musique/ajouterGroupe'" title="Ajouter un groupe" class="mx-5"><i class="bi bi-plus-circle addBand"></i></a>
             </div>
-            <!-- <ul v-for="band in listBands">
-                <li>
-                    {{ band.name }}
-                    <a :href="'/detailsBand/' + band.id">Détails</a>
-                </li>
-            </ul> -->
         </div>
 
         <div class="row">

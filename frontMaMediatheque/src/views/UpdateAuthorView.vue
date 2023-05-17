@@ -90,10 +90,8 @@ onMounted(() => {
         <div>
             <div class="mt-3">
                 <div class="mt-3">
-                <!-- <button @click="createAuthor()" class="btn btn-primary">{{ idAuthorToUpdate == 0 ? 'Ajouter' : 'Modifier' }}</button>&nbsp; -->
-                <button @click='updateAuthor(author)' class="btn btn-primary">Modifier</button>&nbsp;
-                <!-- <button v-if="idAuthorToUpdate > 0" class="btn btn-danger" @click="stopUpdate()">Annuler la modification</button> -->
-            </div>
+                    <button @click='updateAuthor(author)' class="btn btn-primary">Modifier</button>&nbsp;
+                </div>
             </div>
         </div>           
     </div>

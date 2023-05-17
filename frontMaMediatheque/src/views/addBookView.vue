@@ -134,21 +134,6 @@ onMounted(() => {
                 <button v-if="idBookToUpdate > 0" class="btn btn-danger" @click="stopUpdate()">Annuler la modification</button>
             </div>
         </div>
-<!-- 
-        <hr class="my-4">
-
-        <section>
-            <div class="mb-3" v-for="book in listBooks">
-                <h3>{{ book.title }}</h3>
-                <p>{{ book.nbPages }} pages, {{ book.releaseYear }}</p>
-                <h5>Résumé</h5>
-                <p>{{ book.synopsis }}</p>
-
-                <button @click='deleteBook(book.id)' class="btn btn-danger badge"><i class="bi bi-trash3-fill"></i></button>&nbsp;
-                <button @click='updateBook(book)' class="btn btn-info badge"><i class="bi bi-pen"></i></button>
-            </div>
-        </section>
-         -->
     </main>
 </template>
   
