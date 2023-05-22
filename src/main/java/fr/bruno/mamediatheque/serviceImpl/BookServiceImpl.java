@@ -34,6 +34,13 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public Book updateBook(Integer idBookToUpdate, Book bookToUpdate) {
+        bookToUpdate.setId(idBookToUpdate);
+        bookRepository.save(bookToUpdate);
+        return bookToUpdate;
+    }
+
+    @Override
     public Book getSingleBook(int idBook) {
         return bookRepository.findById(idBook).get();
     }

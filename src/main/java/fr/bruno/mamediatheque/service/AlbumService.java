@@ -14,5 +14,7 @@ public interface AlbumService {
 
     public void deleteAlbum(int id);
 
+    public Album updateAlbum(Integer IdAlbumToUpdate, Album albumToUpdate);
+
     public Album getSingleAlbum(int idAlbum);
 }

@@ -33,8 +33,13 @@ public class BookRestController {
 
     @DeleteMapping("/{idBookToDelete}")
     public void deleteBook(@PathVariable Integer idBookToDelete) {
-            if (idBookToDelete != null) {
-                bookService.deleteBook(idBookToDelete);
-            }
+        if (idBookToDelete != null) {
+            bookService.deleteBook(idBookToDelete);
+        }
+    }
+
+    @PutMapping("/{idBookToUpdate}")
+    public Book updateBook(@PathVariable int idBookToUpdate, @RequestBody Book bookToUpdate) {
+        return bookService.updateBook(idBookToUpdate, bookToUpdate);
     }
 }

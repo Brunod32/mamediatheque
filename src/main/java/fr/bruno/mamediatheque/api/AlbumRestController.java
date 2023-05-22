@@ -37,4 +37,9 @@ public class AlbumRestController {
             albumService.deleteAlbum(idAlbumToDelete);
         }
     }
+
+    @PutMapping("/{idAlbumToUpdate}")
+    public Album updateAlbum(@PathVariable int idAlbumToUpdate, @RequestBody Album albumToUpdate) {
+        return albumService.updateAlbum(idAlbumToUpdate, albumToUpdate);
+    }
 }

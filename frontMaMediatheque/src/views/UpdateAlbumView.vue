@@ -21,7 +21,7 @@ async function init() {
     album.value = listAlbumsFormatJson;
 }
 
-async function iniBandsList() {
+async function initBandsList() {
     const response = await axios.get(URL_BAND);
     const bandsListFormatJson = response.data;
     bandsList.value = bandsListFormatJson;
@@ -60,7 +60,7 @@ function updateAlbum(albumToUpdate) {
 
 onMounted(() => {
     init();
-    iniBandsList();
+    initBandsList();
 })
 
 </script>

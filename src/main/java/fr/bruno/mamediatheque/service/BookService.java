@@ -18,5 +18,9 @@ public interface BookService {
     // Supprimer un livre
     public void deleteBook(int id);
 
+    //Mettre à jour un livre
+    public Book updateBook(Integer idBookToUpdate, Book bookToUpdate);
+
+
     public Book getSingleBook(int book);
 }

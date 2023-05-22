@@ -67,10 +67,10 @@ function updateBook(bookToUpdate) {
     stopUpdate();
 }
 
-function stopUpdate() {
-    title.value = nbPages.value = releaseYear.value = synopsis.value = bookCover.value = '';
-    idBookToUpdate.value = 0;
-}
+// function stopUpdate() {
+//     title.value = nbPages.value = releaseYear.value = synopsis.value = writer.value = bookCover.value = '';
+//     idBookToUpdate.value = 0;
+// }
 
 onMounted(() => {
     init();

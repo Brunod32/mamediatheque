@@ -35,6 +35,13 @@ public class AlbumServiceImpl implements AlbumService {
     }
 
     @Override
+    public Album updateAlbum(Integer IdAlbumToUpdate, Album albumToUpdate) {
+        albumToUpdate.setId(IdAlbumToUpdate);
+        albumRepository.save(albumToUpdate);
+        return albumToUpdate;
+    }
+
+    @Override
     public Album getSingleAlbum(int idAlbum) {
         return albumRepository.findById(idAlbum).get();
     }
