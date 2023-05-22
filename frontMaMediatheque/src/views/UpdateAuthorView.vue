@@ -9,6 +9,7 @@ const firstname = ref('');
 const lastname = ref('');
 const biography = ref('');
 const author = ref({});
+const writerPicture = ref('');
 const idAuthorToUpdate = ref(0);
 
 async function init() {
@@ -23,6 +24,7 @@ async function createAuthor(){
         firstname: firstname.value,
         lastname: lastname.value,
         biography: biography.value,
+        writerPicture: writerPicture.value
     }
 
     // si l'id est différent de 0, on l'ajoute
@@ -33,9 +35,7 @@ async function createAuthor(){
     await axios.post(URL_AUTEUR, body);
 
     // Reinitialisation des champs de saisie
-    firstname.value = '';
-    lastname.value = '';
-    biography.value = '';
+    firstname.value = lastname.value = biography.value = writerPicture = '';
     init();
 }
 
@@ -43,6 +43,7 @@ function updateAuthor(authorToUpdate){
     firstname.value = authorToUpdate.firstname
     lastname.value = authorToUpdate.lastname
     biography.value = authorToUpdate.biography
+    writerPicture.value = authorToUpdate.writerPicture
     idAuthorToUpdate.value = authorToUpdate.id
 
     window.location.href = '/bibliotheque/auteurs';
@@ -52,7 +53,7 @@ function updateAuthor(authorToUpdate){
 }
 
 function stopUpdate() {
-    firstname.value = lastname.value = biography.value = '';
+    firstname.value = lastname.value = biography.value = writerPicture.value ='';
     idAuthorToUpdate.value = 0;
 } 
 
@@ -79,6 +80,10 @@ onMounted(() => {
                 <div class="d-flex flex-column">
                     <label for="firstname">Prénom</label>
                     <input type="text" name="firstname" v-model="author.firstname">
+                </div>
+                <div class="d-flex flex-column">
+                    <label for="writerPicture">Photo de l'auteur</label>
+                    <input type="text" name="writerPicture" v-model="author.writerPicture">
                 </div>
             </div>
             <div class="d-flex flex-column mt-3">
