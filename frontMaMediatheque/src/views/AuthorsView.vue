@@ -23,17 +23,17 @@ onMounted(() => {
     <main>
         <h1 class="my-3">Les auteurs</h1>
         <hr>
-        <div class="d-flex">
+        <!-- <div class="d-flex"> -->
             <div class="btnBack">
-                <a :href="'/bibliotheque'" class="btnBack"><i class="bi bi-chevron-left"></i></a>
+                <a :href="'/bibliotheque'"><i class="bi bi-chevron-left"></i></a>
+                <a :href="'/bibliotheque/ajouterAuteur'" title="Ajouter un auteur"><i class="bi bi-plus-circle addAuthor"></i></a>
             </div>
-        </div>
+        <!-- </div> -->
 
         <div>
-            <div class="d-flex mb-5">
-                <h2 class="mt-2">Liste des auteurs</h2>
-                <a :href="'/bibliotheque/ajouterAuteur'" title="Ajouter un auteur" class="mx-5"><i class="bi bi-plus-circle addAuthor"></i></a>
-            </div>
+            <!-- <div class="d-flex mb-5">
+                
+            </div> -->
             <ul v-for="author in listAuthors">
                 <li>
                     {{ author.firstname }} {{ author.lastname }}
@@ -59,13 +59,13 @@ i {
 }
 
 .btnBack {
-    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
 }
 
 .btnBack i {
     font-size: 2rem;
 }
-
 </style>
   
   

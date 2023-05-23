@@ -24,21 +24,18 @@ onMounted(() => {
         <hr>
         <div class="btnBack">
             <a href="/bibliotheque" class="btnBack"><i class="bi bi-chevron-left"></i></a>
+            <a :href="'/bibliotheque/ajouterLivre'" title="Ajouter un livre" class="mx-5"><i class="bi bi-plus-circle addBook"></i></a>
         </div>
  
-        <div>
-            <div class="d-flex mb-5">
-                <h2 class="mt-2">Liste des Livres</h2>
-                <a :href="'/bibliotheque/ajouterLivre'" title="Ajouter un livre" class="mx-5"><i class="bi bi-plus-circle addBook"></i></a>
-            </div>
-            <ul v-for="book in listBooks">
-                <li>
-                    <img class="imgBook" :src="book.bookCover" :title="book.title"  alt="Couverture de livre" />
-                    {{ book.title }}
-                    <a :href="'/detailsLivre/' + book.id">Détails</a>
-                </li>
-            </ul>
-        </div>
+
+        <ul class="booksListDiv">
+            <li v-for="book in listBooks">
+                <img class="imgBook" :src="book.bookCover" :title="book.title"  alt="Couverture de livre" />
+                <div>{{ book.title }}</div>
+                <a :href="'/detailsLivre/' + book.id">Détails</a>
+            </li>
+        </ul>
+
         
     </main>
 </template>
@@ -55,7 +52,9 @@ i {
 }
 
 .btnBack {
-    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
 }
 
 .btnBack i {
@@ -72,12 +71,27 @@ input , textarea{
 }
 
 .imgBook {
-    width: 50px;
+    width: 100px;
     height: auto;
 }
 
 li {
     list-style: none;
+    margin-bottom: 20px;
+}
+
+.booksListDiv {
+    /* text-align: center */
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width:1000px) {
+    .booksListDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 </style>
   

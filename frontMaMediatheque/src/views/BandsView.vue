@@ -21,17 +21,9 @@ onMounted(() => {
     <main>
         <h1>Les groupes</h1>
         <hr>
-        <div class="d-flex">
-            <div class="btnBack">
-                <a :href="'/musique'" class="btnBack"><i class="bi bi-chevron-left"></i></a>
-            </div>
-        </div>
-
-        <div>
-            <div class="d-flex mb-5">
-                <h2 class="mt-2">Liste des groupes</h2>
-                <a :href="'/musique/ajouterGroupe'" title="Ajouter un groupe" class="mx-5"><i class="bi bi-plus-circle addBand"></i></a>
-            </div>
+        <div class="btnBack">
+            <a :href="'/musique'" class="btnBack"><i class="bi bi-chevron-left"></i></a>
+            <a :href="'/musique/ajouterGroupe'" title="Ajouter un groupe" class="mx-5"><i class="bi bi-plus-circle addBand"></i></a>
         </div>
 
         <div class="row">
@@ -39,7 +31,7 @@ onMounted(() => {
                 <div class="mb-3">
                     <img class="imgBand" :src="band.bandPicture" :title="band.name"  alt="Photo du groupe" />
                     <div class="card-body">
-                        <a :href="'/detailsBand/' + band.id"><h5 class="card-title">{{ band.name }} - {{ band.country }}</h5></a>
+                        <a :href="'/detailsBand/' + band.id"><h5 class="text-center">{{ band.name }} - {{ band.country }}</h5></a>
                     </div>
                 </div>
             </div>
@@ -57,7 +49,9 @@ h1 {
 }
 
 .btnBack {
-    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
 }
 
 .btnBack i {
@@ -69,7 +63,7 @@ h1 {
 }
 
 .imgBand {
-    height: 100;
+    height: 200px;
 }
 </style>
   

@@ -20,25 +20,18 @@ onMounted(() => {
     <main>
         <h1>Les albums</h1>
         <hr>
-        <div class="d-flex">
-            <div class="btnBack">
-                <a :href="'/musique'" class="btnBack"><i class="bi bi-chevron-left"></i></a>
-            </div>
+        <div class="btnBack">
+            <a :href="'/musique'" class="btnBack"><i class="bi bi-chevron-left"></i></a>
+            <a :href="'/musique/ajouterAlbum'" title="Ajouter un album" class="mx-5"><i class="bi bi-plus-circle addAlbum"></i></a>
         </div>
         
-        <div>
-            <div class="d-flex mb-5">
-                <h2 class="mt-2">Liste des albums</h2>
-                <a :href="'/musique/ajouterAlbum'" title="Ajouter un album" class="mx-5"><i class="bi bi-plus-circle addAlbum"></i></a>
-            </div>
-            <ul v-for="album in listAlbums">
-                <li>
-                    <img class="imgAlbum" :src="album.albumCover" :title="album.name"  alt="Couverture de l'album" />
-                    {{ album.name }}
-                    <a :href="'/detailsAlbum/' + album.id">Détails</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="albumsListDiv">
+            <li v-for="album in listAlbums">
+                <img class="imgAlbum" :src="album.albumCover" :title="album.name"  alt="Couverture de l'album" />
+                <div>{{ album.name }}</div>
+                <a :href="'/detailsAlbum/' + album.id">Détails</a>
+            </li>
+        </ul>
     </main>
 </template>
   
@@ -49,7 +42,9 @@ h1 {
 }
 
 .btnBack {
-    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
 }
 
 .btnBack i {
@@ -61,12 +56,27 @@ h1 {
 }
 
 .imgAlbum {
-    width: 50px;
+    width: 100px;
     height: auto;
 }
 
 li {
     list-style: none;
+    margin-bottom: 20px;
+}
+
+.albumsListDiv {
+    /* text-align: center */
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width:1000px) {
+    .albumsListDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 </style>
   

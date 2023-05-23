@@ -1,11 +1,12 @@
 <template>
     <main>
-        <h1>Gestionnaire de médias</h1>
+        <div>
+            <h1>Gestionnaire de médias</h1>
+        </div>
         <hr>
         <div class="imgHome">
             <a href="/bibliotheque/" title="Consulter la bibliothèque"><img src="img/books.png" class="img" alt="Image d'une bibliothèque"></a>
-            <a href="/musique/" title="Consulter la CDthèque"><img src="img/guitar-amplifier.png" class="img" alt="Image d'un amplificateur"></a>
-            
+            <a href="/musique/" title="Consulter la CDthèque"><img src="img/guitar-amplifier.png" class="img" alt="Image d'un amplificateur"></a>      
         </div>
     </main>
 </template>
@@ -14,7 +15,10 @@
 <style scoped>
 h1 {
     text-align: center;
-    margin: 3rem;
+}
+.imgHome {
+    display: flex;
+    justify-content: space-around;
 }
 
 .img {
@@ -23,10 +27,19 @@ h1 {
     margin-top: 2rem;
 }
 
+@media screen and (max-width:1000px) {
 .imgHome {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
 }
 
+.img {
+    width: 300px;
+    height: auto;
+    margin-top: 2rem;
+}
+
+}
 </style>
 
