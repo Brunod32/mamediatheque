@@ -58,13 +58,12 @@ function updateBook(bookToUpdate) {
     releaseYear.value = bookToUpdate.releaseYear
     synopsis.value = bookToUpdate.synopsis
     idBookToUpdate.value = bookToUpdate.id
-    writer.value = bookToUpdate.writer
     bookCover.value = bookToUpdate.bookCover
 
     window.location.href = '/bibliotheque/livres';
 
     createBook();
-    stopUpdate();
+    // stopUpdate();
 }
 
 // function stopUpdate() {
@@ -148,7 +147,9 @@ h1 {
     font-size: 2rem;
 }
 
-input , textarea{
+input,
+textarea,
+select {
     border-radius: 10px;
     padding: 5px;
 }

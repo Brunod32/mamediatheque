@@ -50,7 +50,6 @@ function updateAlbum(albumToUpdate) {
     name.value = albumToUpdate.name
     releasedYears.value = albumToUpdate.releasedYears
     albumCover.value = albumToUpdate.albumCover
-    band.value = albumToUpdate.band
     idAlbumToUpdate.value = albumToUpdate.id
 
     window.location.href = '/musique/albums';
@@ -89,7 +88,7 @@ onMounted(() => {
                         <label for="band">Groupe</label>
                         <!-- Ajouter mulitple dans select si plusieurs auteurs pour un livre -->
                         <select name="band" id="band" v-model="band">
-                            <option v-for="band in bandsList" v-bind:value="album.band">
+                            <option v-for="band in bandsList" v-bind:value="band">
                                 {{ band.name }}
                             </option>
                         </select>
