@@ -46,30 +46,26 @@ onMounted(() => {
             <a href="/musique/groupes" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
 
-        <div class="d-flex flex-column mt-5">
-            <div class="d-flex flex-column">
-                <div class="d-flex gap-5">
-                    <div class="d-flex flex-column">
-                        <label for="lastname">Nom</label>
-                        <input type="text" name="name" v-model="name">
-                    </div>
-                    <div class="d-flex flex-column">
-                        <label for="kindOfMetal">Style</label>
-                        <input type="text" name="kindOfMetal" v-model="kindOfMetal">
-                    </div>
-                    <div class="d-flex flex-column">
-                        <label for="firstname">Pays</label>
-                        <input type="text" name="country" v-model="country">
-                    </div>
-                    <div class="d-flex flex-column">
-                        <label for="firstname">Année de formation</label>
-                        <input type="text" name="creationYear" v-model="creationYear">
-                    </div>
-                    <div class="d-flex flex-column">
-                        <label for="bandPicture">Image</label>
-                        <input type="text" name="bandPicture" v-model="bandPicture">
-                    </div>
-                </div>                
+        <div class="mt-3">
+            <div class="d-flex flex-column mt-3">
+                <label for="lastname">Nom</label>
+                <input type="text" name="name" v-model="name">
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <label for="kindOfMetal">Style</label>
+                <input type="text" name="kindOfMetal" v-model="kindOfMetal">
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <label for="firstname">Pays</label>
+                <input type="text" name="country" v-model="country">
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <label for="firstname">Année de formation</label>
+                <input type="text" name="creationYear" v-model="creationYear">
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <label for="bandPicture">Image</label>
+                <input type="text" name="bandPicture" v-model="bandPicture">
             </div>
             
             <div>

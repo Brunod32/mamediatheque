@@ -87,46 +87,42 @@ onMounted(() => {
         <div class="btnBack">
             <a href="/bibliotheque/livres" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
-        <div class="d-flex flex-column mt-5">
+   
+        <div class="mt-3">
+            <div class="d-flex flex-column mt-3">
+                <label for="title">Titre</label>
+                <input type="text" name="title" v-model="title">
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <label for="writer">Auteur</label>
+                <!-- Ajouter mulitple dans select si plusieurs auteurs pour un livre -->
+                <select name="writer" id="writer" v-model="writer">
+                    <option v-for="writer in writersList" v-bind:value="writer">
+                        {{ writer.firstname }} {{ writer.lastname }}
+                    </option>
+                </select>
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <label for="nbPages">Nombre de pages</label>
+                <input type="text" name="nbPages" v-model="nbPages">
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <label for="releaseYear">Année de sortie</label>
+                <input type="text" name="releaseYear" v-model="releaseYear">
+            </div>
+
+            <div class="d-flex flex-column mt-3">
+                <label for="bookCover">Couverture</label>
+                <input type="text" name="bookCover" v-model="bookCover">
+            </div>
+
             <div class="d-flex flex-column">
-                <div class="d-flex gap-5">
-                    <div class="d-flex flex-column">
-                        <label for="title">Titre</label>
-                        <input type="text" name="title" v-model="title">
-                    </div>
-                    <div class="d-flex flex-column">
-                        <label for="nbPages">Nombre de pages</label>
-                        <input type="text" name="nbPages" v-model="nbPages">
-                    </div>
-                    <div class="d-flex flex-column">
-                        <label for="releaseYear">Année de sortie</label>
-                        <input type="text" name="releaseYear" v-model="releaseYear">
-                    </div>
-                    <div class="d-flex flex-column">
-                        <label for="writer">Auteur</label>
-                        <!-- Ajouter mulitple dans select si plusieurs auteurs pour un livre -->
-                        <select name="writer" id="writer" v-model="writer">
-                            <option v-for="writer in writersList" v-bind:value="writer">
-                                {{ writer.firstname }} {{ writer.lastname }}
-                            </option>
-                        </select>
-                    </div>
-
-                    <div class="d-flex flex-column">
-                        <label for="bookCover">Couverture</label>
-                        <input type="text" name="bookCover" v-model="bookCover">
-                    </div>
-
-                </div>
-                <div>
-                    <div class="d-flex flex-column">
-                        <label class="mt-2" for="synopsis">Synopsis</label>
-                        <textarea name="synopsis" id="synopsis" cols="30" rows="3" v-model="synopsis"></textarea>
-                    </div>
-                </div>
-            
+                <label class="mt-2" for="synopsis">Synopsis</label>
+                <textarea name="synopsis" id="synopsis" cols="30" rows="3" v-model="synopsis"></textarea>
             </div>
         </div>
+            
+
         
         <div>
             <div class="mt-3">

@@ -52,33 +52,28 @@ onMounted(() => {
             <a href="/musique/albums" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
 
-        <div class="d-flex">
-            <div class="d-flex flex-column">
-                <div class="d-flex flex-column gap-5">
-                    <div class="d-flex flex-column">
-                        <label for="title">Titre</label>
-                        <input type="text" name="name" v-model="name">
-                    </div>
-                    <div class="d-flex flex-column">
-                        <label for="nbPages">Année de sortie</label>
-                        <input type="text" name="releasedYears" v-model="releasedYears">
-                    </div>
-                    <div class="d-flex flex-column">
-                        <label for="writer">Groupe</label>
-                        <!-- Ajouter mulitple dans select si plusieurs auteurs pour un livre -->
-                        <select name="band" id="band" v-model="band">
-                            <option v-for="band in bandsList" v-bind:value="band">
-                                {{ band.name }}
-                            </option>
-                        </select>
-                    </div>
-
-                    <div class="d-flex flex-column">
-                        <label for="albumCover">Couverture</label>
-                        <input type="text" name="albumCover" v-model="albumCover">
-                    </div>
-                </div>            
+        <div class="mt-3">
+            <div class="d-flex flex-column mt-3">
+                <label for="title">Titre</label>
+                <input type="text" name="name" v-model="name">
             </div>
+            <div class="d-flex flex-column mt-3">
+                <label for="writer">Groupe</label>
+                <!-- Ajouter mulitple dans select si plusieurs auteurs pour un livre -->
+                <select name="band" id="band" v-model="band">
+                    <option v-for="band in bandsList" v-bind:value="band">
+                        {{ band.name }}
+                    </option>
+                </select>
+            <div class="d-flex flex-column mt-3">
+                <label for="nbPages">Année de sortie</label>
+                <input type="text" name="releasedYears" v-model="releasedYears">
+            </div>
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <label for="albumCover">Couverture</label>
+                <input type="text" name="albumCover" v-model="albumCover">
+                    </div>
         </div>
 
         <div class="mt-3">
