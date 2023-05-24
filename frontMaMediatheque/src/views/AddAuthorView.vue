@@ -74,14 +74,6 @@ onMounted(() => {
                 </div>
             </div>           
         </div>
-        <hr class="my-4">
-        <section>
-            <div class="mb-3" v-for="author in listAuthors">
-                <h3>{{ author.firstname }} {{ author.lastname }}</h3>
-                <p>{{ author.biography }}</p>
-                <button @click='updateAuthor(author)' class="btn btn-info badge"><i class="bi bi-pen"></i></button>
-            </div>
-        </section>
     </main>
 </template>
   

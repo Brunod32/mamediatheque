@@ -52,10 +52,9 @@ onMounted(() => {
             <a href="/musique/albums" class="btnBack"><i class="bi bi-chevron-left"></i></a>
         </div>
 
-
-        <div class="d-flex flex-column mt-5">
+        <div class="d-flex">
             <div class="d-flex flex-column">
-                <div class="d-flex gap-5">
+                <div class="d-flex flex-column gap-5">
                     <div class="d-flex flex-column">
                         <label for="title">Titre</label>
                         <input type="text" name="name" v-model="name">

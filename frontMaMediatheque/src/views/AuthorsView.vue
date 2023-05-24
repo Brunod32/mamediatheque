@@ -21,14 +21,15 @@ onMounted(() => {
 
 <template>
     <main>
-        <h1 class="my-3">Les auteurs</h1>
+        <div class="title">
+            <a :href="'/bibliotheque'" class="btnBack"><i class="bi bi-chevron-left"></i></a>
+            <h1 class="my-3">Les auteurs</h1>
+            <a :href="'/bibliotheque/ajouterAuteur'" title="Ajouter un auteur"><i class="bi bi-plus-circle addAuthor"></i></a>
+        </div>
         <hr>
-        <!-- <div class="d-flex"> -->
-            <div class="btnBack">
-                <a :href="'/bibliotheque'"><i class="bi bi-chevron-left"></i></a>
-                <a :href="'/bibliotheque/ajouterAuteur'" title="Ajouter un auteur"><i class="bi bi-plus-circle addAuthor"></i></a>
-            </div>
-        <!-- </div> -->
+        <!-- <div class="btnBack">
+        </div> -->
+
 
         <div>
             <!-- <div class="d-flex mb-5">
@@ -49,6 +50,12 @@ onMounted(() => {
 h1 {
     text-align: center;
 }
+
+.title {
+    display: flex;
+    justify-content: space-around;
+}
+
 
 i {
     font-size: 1rem;

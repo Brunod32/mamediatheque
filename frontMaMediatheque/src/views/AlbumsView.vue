@@ -18,13 +18,12 @@ onMounted(() => {
 
 <template>
     <main>
-        <h1>Les albums</h1>
-        <hr>
-        <div class="btnBack">
+        <div class="title">
             <a :href="'/musique'" class="btnBack"><i class="bi bi-chevron-left"></i></a>
+            <h1>Les albums</h1>
             <a :href="'/musique/ajouterAlbum'" title="Ajouter un album" class="mx-5"><i class="bi bi-plus-circle addAlbum"></i></a>
         </div>
-        
+        <hr>
         <ul class="albumsListDiv">
             <li v-for="album in listAlbums">
                 <img class="imgAlbum" :src="album.albumCover" :title="album.name"  alt="Couverture de l'album" />
@@ -51,12 +50,17 @@ h1 {
     font-size: 2rem;
 }
 
+.title {
+    display: flex;
+    justify-content: space-around;
+}
+
 .addAlbum {
     font-size: 2rem;
 }
 
 .imgAlbum {
-    width: 100px;
+    width: 200px;
     height: auto;
 }
 
@@ -69,6 +73,7 @@ li {
     /* text-align: center */
     display: flex;
     justify-content: space-around;
+    margin-top: 40px;
 }
 
 @media screen and (max-width:1000px) {

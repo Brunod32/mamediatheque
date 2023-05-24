@@ -20,12 +20,16 @@ onMounted(() => {
 
 <template>
     <main>
-        <h1 class="my-3">Les livres</h1>
+        <div class="title">
+            <a href="/bibliotheque" class="btnBack"><i class="bi bi-chevron-left"></i></a>
+            <h1 class="my-3">Les livres</h1>
+            <a :href="'/bibliotheque/ajouterLivre'" title="Ajouter un livre"><i class="bi bi-plus-circle addBook"></i></a>
+        </div>
         <hr>
-        <div class="btnBack">
+        <!-- <div class="btnBack">
             <a href="/bibliotheque" class="btnBack"><i class="bi bi-chevron-left"></i></a>
             <a :href="'/bibliotheque/ajouterLivre'" title="Ajouter un livre" class="mx-5"><i class="bi bi-plus-circle addBook"></i></a>
-        </div>
+        </div> -->
  
 
         <ul class="booksListDiv">
@@ -46,6 +50,10 @@ h1 {
     text-align: center;
 }
 
+.title {
+    display: flex;
+    justify-content: space-around;
+}
 
 i {
     font-size: 1rem;
@@ -84,6 +92,7 @@ li {
     /* text-align: center */
     display: flex;
     justify-content: space-around;
+    margin-top: 40px;
 }
 
 @media screen and (max-width:1000px) {
